@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harnessdemotest_1684983972850-pr-trigger-input-set
+  identifier: Build_harnessdemotest_1684983972850prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test_Demo_Project
+  pipeline:
+    identifier: Build_harnessdemotest_1684983972850
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
