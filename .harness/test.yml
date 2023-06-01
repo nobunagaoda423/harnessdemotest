@@ -1,0 +1,15 @@
+inputSet:
+  pipeline:
+    identifier: Build_harnessdemotest_1684983972850
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: testci
+    object Object: properties.ci.codebase
+  name: test2
+  identifier: test2
+  orgIdentifier: default
+  projectIdentifier: Test_Demo_Project
