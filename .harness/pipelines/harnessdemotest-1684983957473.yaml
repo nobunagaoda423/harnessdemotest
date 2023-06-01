@@ -3,31 +3,34 @@ pipeline:
   name: Build harnessdemotest
   orgIdentifier: default
   projectIdentifier: Test_Demo_Project
-  properties:
-    ci:
-      codebase:
-        build: <+input>
-        connectorRef: account.Github_OAuth_1684982785778
-        repoName: nobunagaoda423/harnessdemotest
   stages:
     - stage:
-        identifier: build
         name: build
+        identifier: build
+        description: ""
+        type: CI
         spec:
           cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
           execution:
             steps:
               - step:
-                  identifier: echo
-                  name: echo
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    command: echo hello world
-                  timeout: ""
-                  type: Run
-          platform:
-            arch: Amd64
-            os: Linux
-          runtime:
-            spec: {}
-            type: Cloud
-        type: CI
+                    connectorRef: onpremise
+                    repo: nginx
+                    tags:
+                      - "#nginx"
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1684982785778
+        repoName: CI
+        build: <+input>
